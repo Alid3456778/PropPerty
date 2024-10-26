@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="CSS/customer_data.css">
+</head>
+<body>
+    <h1>User List</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        <% users.forEach(user => { %>
+        <tr>
+            <td data-label="Name"><%= user.name %></td>
+            <td data-label="Email"><%= user.email %></td>
+        </tr>
+        <% }) %>
+    </table>
+        
+    
+</body>
+</html>

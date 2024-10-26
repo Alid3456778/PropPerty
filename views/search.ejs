@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Packages</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,500;1,400&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,500;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="CSS/search.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Packages</h1>
+        <div class="results">
+            <% if (message) { %>
+                <div class="message"><%= message === 'deleted' ? 'Package deleted successfully.' : message %></div>
+            <% } %>
+
+            <% if (packages && packages.length > 0) { %>
+                <% packages.forEach(function(item) { %>
+                    <div class="result-item">
+                        <h2><%= item.name %></h2>
+                        <p><strong>Description:</strong> <%= item.description %></p>
+                        <p><strong>Price:</strong> <%= item.price %></p>
+                        <p><strong>Language:</strong> <%= item.language %></p>
+                        <p><strong>Currency:</strong> <%= item.currency %></p>
+                        <img src="<%= item.image %>" alt="<%= item.name %>" style="width: 100px; height: auto;">
+                        <form action="/delete" method="post" style="position: absolute; right: 0; top: 0;">
+                            <input type="hidden" name="packagePrice" value="<%= item.price %>">
+                            <button type="submit" class="delete-button">Delete</button>
+                        </form>
+                        
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>No matching packages found.</p>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="CSS/customer_data.css">
+</head>
+<body>
+    <h1>Package List</h1>
+    <table>
+        <tr>
+            <th>Pack Name</th>
+            <th>Pack Price</th>
+            <th>Description</th>
+            <!-- <th>Best Time To Visit</th> -->
+            <th>Top Attraction</th>
+            <th>Activities</th>
+            <th>Local Dish</th>
+            <th>Currency</th>
+        </tr>
+        <% users.forEach(user => { %>
+        <tr>
+            <td data-label="Pack Name"><%= user.name %></td>
+            <td data-label="Pack Price"><%= user.price%></td>
+            <td data-label="Pack Description"><%= user.description %></td>
+            <!-- <td data-label="Pack Best Time To Visit"><%= user.best_time_to_vist %></td> -->
+            <td data-label="Pack Top Attraction"><%= user.top_attraction %></td>
+            <td data-label="Pack Activities"><%= user.activities %></td>
+            <td data-label="Pack Local Dish"><%= user.local_dishes %></td>
+            <td data-label="Pack Currency"><%= user.currency %></td>
+        </tr>
+        <% }) %>
+    </table>
+        
+    
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,500;1,400&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,500;1,400&display=swap"
+        rel="stylesheet">                                                   
+        <link rel="stylesheet" href="CSS/fake.css">
+       
+       <title>Explore</title>
+
+        
+</head>
+
+<body >
+   <div id="main">
+    <nav>
+        <div class="Logo">Explo</div>
+    </nav>
+    <div class="sect" >
+            <div class="div" id="resultsDiv"></div>
+            <div id="results"></div>     
+    </div>
+   </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <script>
+        VANTA.GLOBE({
+          el: "#main",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 150.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+        });
+    </script>
+
+    <script>
+        let tourData = {};
+        let name;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const resultsDiv = document.getElementById('results');
+            const productDiv = document.querySelector(".div");
+
+async function places() {
+    try {
+        const searchQuery = localStorage.getItem('searchQuery'); 
+        productDiv.innerHTML = ``; 
+
+       
+        const product = await fetch('./bob.json');
+        let finalProduct = await product.json();
+
+        console.log("API Data:", finalProduct);
+
+        
+        const filteredProducts = finalProduct.filter(dest => 
+            dest.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+            dest.country.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+
+        
+        if (filteredProducts.length === 0) {
+            productDiv.innerHTML = `<p>No matching destinations found for "${searchQuery}".</p>`;
+            return;
+        }
+
+     
+        filteredProducts.forEach(dest => {
+            productDiv.innerHTML += `
+                <div class="cons">
+                    <div class="container">
+                        <div class="box1">
+                            <img src="${dest.image}" alt="">
+                        </div>
+                        <div id="box2">
+                            <h3>${dest.name} | ${dest.country}</h3>
+                            <h4 class="sub-heading">About :</h4>
+                            <p>${dest.description}</p>
+                            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                        </div>
+                    </div>
+                    <div class="container2">
+                        <div class="container2-box">
+                            <h4>Best time to visit :</h4><p>${dest.best_time_to_visit}</p>
+                        </div>
+                        <div class="container2-box"><h4>Tourist Places :</h4><p>${dest.top_attractions}</p></div>
+                        <div class="container2-box"><h4>What you experience :</h4><p>${dest.activities}</p></div>
+                        <div class="container2-box"><h4>Popular dishes :</h4><p>${dest.local_dishes}</p></div>
+                        <div class="container2-box"><h4>Their language and currency :</h4><p>${dest.language} | ${dest.currency}</p></div>             
+                    </div>
+                </div>
+            `;
+        });
+    } catch (error) {
+        console.error('Error fetching or parsing data:', error);
+    }
+}
+
+
+            async function loadData() {
+    try {
+        const response = await fetch('./dummy.json'); 
+        const response1 = await fetch('./bob.json'); 
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const tourData = await response.json();
+        const tourData1 = await response1.json();
+        console.log("Data fetched from dummy.json:", tourData);
+        console.log("bob data ",tourData1);
+        
+        loadLastSearchQuery(tourData);
+    } catch (error) {
+        console.error('Error loading data:', error);
+    }
+}
+
+function loadLastSearchQuery(tourData) {
+    const searchQuery = localStorage.getItem('searchQuery');
+    if (searchQuery) {
+        const name = searchQuery;
+        places(name);
+        searchPlace(tourData, name);
+    }
+}
+
+function searchPlace(tourData, name) {
+    if (!name) return;
+    const place = name.toLowerCase();
+    const placeData = tourData.filter(item => item.name.toLowerCase().includes(place));
+    console.log("Place data is", placeData);
+
+    const resultsDiv = document.getElementById('results');
+    if (placeData.length > 0) {
+        displayResults(placeData);
+    } else {
+        resultsDiv.innerHTML = '<p>No results found for this place.</p>';
+    }
+}
+
+function displayResults(packages) {
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = `<h2 class="pack-pack">Packages:</h2>`;
+    
+    packages.forEach((package, index) => {
+        const packageCard = document.createElement('div');
+        packageCard.classList.add('package-card');
+
+        packageCard.innerHTML = `
+        <div class="result">
+            <div class="result-img">
+                <img src="${package.image}" alt="${package.name}">
+            </div>
+            <div class="result-text">
+                <h2 class="result-head"><a href="package?name=${encodeURIComponent(package.name)}&price=${encodeURIComponent(package.price)}&description=${encodeURIComponent(package.description)}">${package.name}</a></h2>
+                <p class="result-price">Price: ${package.price}</p>
+                
+            </div>
+        </div>
+        `;
+        resultsDiv.appendChild(packageCard);
+    });
+}
+
+loadData();
+
+
+        });
+    </script>
+</body>
+</html> 

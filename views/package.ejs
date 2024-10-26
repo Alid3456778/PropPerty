@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Explore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,500;1,400&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,500;1,400&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="../CSS/package.css">                                                    
+</head>
+<body>
+    <div >
+        <div id="packageDetails" class="main"></div>
+    </div>
+    <div class="inform">
+        <% if (session.user) { %>
+        <form action="/booking" method="post">  
+            <input type="text" name="username" placeholder="Enter Your Name">
+            <input type="email" name="email" placeholder="Enter Your Email">
+            <input type="number" name="number" placeholder="Enter Your Number">
+            <input type="number" name="people" placeholder="Enter the Number Of People">
+            <input type="number" name="childrens" placeholder="Enter the Number Of Childerns">
+            <h4>Select The Nearest AirPort</h4>
+            <input type="text" name="flight" placeholder="Enter your Airport">
+            
+            
+            <input type="hidden" name="packageName" id="packageName">
+            <input type="hidden" name="packagePrice" id="packagePrice">
+            <input type="hidden" name="packageDescription" id="packageDescription">
+
+        <h4>Select Your Mode of Transport:</h4>
+        <label for="transportType">Transport Type:</label>
+        <select name="transportType" id="transportType" required>
+            <option value="" disabled selected>Select Transport</option>
+            <option value="bus">Bus</option>
+            <option value="car">Car</option>
+        </select>
+
+        <div id="busOptions" style="display: none;">
+            <h4>Select Bus Type:</h4>
+            <select name="busType">
+                <option value="" disabled selected>Select Bus Type</option>
+                <option value="mini-van">Mini Van</option>
+                <option value="medium-bus">Medium Bus</option>
+                <option value="large-bus">Large Bus</option>
+            </select>
+        </div>
+
+        <div id="carOptions" style="display: none;">
+            <h4>Select Car Type:</h4>
+            <select name="carType">
+                <option value="" disabled selected>Select Car Type</option>
+                <option value="luxury">Luxury</option>
+                <option value="well-maintained">Well Maintained</option>
+                <option value="taxi">Taxi</option>
+            </select>
+        </div>
+
+
+            <button type="submit">Book !</button>
+        </form>
+        <% } else { %>
+            <p>You must <a href="/login">login</a> or <a href="/signup">sign up</a> to book the tour.</p>
+        <% } %>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const transportTypeSelect = document.getElementById('transportType');
+    const busOptions = document.getElementById('busOptions');
+    const carOptions = document.getElementById('carOptions');
+
+    transportTypeSelect.addEventListener('change', function() {
+        const selectedTransport = this.value;
+
+        if (selectedTransport === 'bus') {
+            busOptions.style.display = 'block';
+            carOptions.style.display = 'none';
+        } else if (selectedTransport === 'car') {
+            carOptions.style.display = 'block';
+            busOptions.style.display = 'none';
+        } else {
+            busOptions.style.display = 'none';
+            carOptions.style.display = 'none';
+        }
+    });
+});
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const packageName = decodeURIComponent(urlParams.get('name'));
+            const packagePrice = decodeURIComponent(urlParams.get('price'));
+            const packageDescription = decodeURIComponent(urlParams.get('description'));
+    
+            try {
+                const response = await fetch('./dummy.json'); 
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const tourData = await response.json();
+                
+                const packageDetails = tourData.find(pkg => 
+                    pkg.name === packageName && 
+                    pkg.price === packagePrice && 
+                    pkg.description === packageDescription
+                );
+    
+                const packageDetailsDiv = document.getElementById('packageDetails');
+    
+                if (packageDetails) {
+                    packageDetailsDiv.innerHTML = `
+                    <div class="head">
+                        <h1>${packageDetails.name}</h1>
+                        <img src="${packageDetails.image}" alt="${packageDetails.name}">
+                    </div>
+                    <div class="second-section" id="main">
+                        <div class="section">
+                            <h4>Price: </h4>
+                            <p>${packageDetails.price}</p>
+                        </div>
+                        <div class="section">
+                            <h4>Description: </h4>
+                            <p>${packageDetails.description}</p>
+                        </div>
+                        <div class="section">
+                            <h4>Best Time to Visit: </h4>
+                            <p>${packageDetails.best_time_to_visit || 'N/A'}</p>
+                        </div>
+                        <div class="section">
+                            <h4>Top Attraction: </h4>
+                            <p>${packageDetails.top_attraction || 'N/A'}</p>
+                        </div>
+                        <div class="section">
+                            <h4>Activities: </h4>
+                            <p>${packageDetails.activities || 'N/A'}</p>
+                        </div>
+                        <div class="section">
+                            <h4>Local Dishes: </h4>
+                            <p>${packageDetails.local_dishes || 'N/A'}</p>
+                        </div>
+                        <div class="section">
+                            <h4>Language: </h4>
+                            <p>${packageDetails.language || 'N/A'}</p>
+                        </div>
+                        <div class="section">
+                            <h4>Currency: </h4>
+                            <p>${packageDetails.currency || 'N/A'}</p>
+                        </div>
+                    </div>
+                    `;
+    
+                    let daysHTML = `<h3>Day-wise Itinerary</h3>`;
+                    let dayCounter = 1;
+    
+                    while (packageDetails[`day${dayCounter}_title`]) {
+                        daysHTML += `
+                        <div class="day-day">
+                            <div class="day-section">
+                                
+                                <h4>${dayCounter} ${packageDetails[`day${dayCounter}_title`]}</h4>
+                                <p>${packageDetails[`day${dayCounter}_details`]}</p>
+                                
+                            </div>
+                            </div>
+                        `;
+                        dayCounter++;
+                    }
+
+                    packageDetailsDiv.innerHTML += `
+                        <div class="days-section">
+                            ${daysHTML}
+                        </div>
+                    `;
+    
+                    document.getElementById('packageName').value = packageDetails.name;
+                    document.getElementById('packagePrice').value = packageDetails.price;
+                    document.getElementById('packageDescription').value = packageDetails.description;
+    
+                } else {
+                    packageDetailsDiv.innerHTML = '<p>No details found for this package.</p>';
+                }
+            } catch (error) {
+                console.error('Error loading data:', error);
+                const packageDetailsDiv = document.getElementById('packageDetails');
+                packageDetailsDiv.innerHTML = '<p>Error loading package details.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

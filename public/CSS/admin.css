@@ -1,0 +1,131 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Body styling */
+  body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  /* Container styling */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading styling */
+  h1 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 2em;
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 1.5em;
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  form input, form button {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+  
+  form input {
+    width: 100%;
+  }
+  
+  form button {
+    background: #5c67f2;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 1.1em;
+  }
+  
+  form button:hover {
+    background: #4751d2;
+  }
+  
+  /* Results styling */
+  .results {
+    margin: 20px 0;
+  }
+  
+  /* Packages List styling */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .package-details {
+    flex-grow: 1;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    body {
+      padding: 10px;
+    }
+  
+    .container {
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 1.8em;
+    }
+  
+    form input, form button {
+      padding: 10px;
+      font-size: 0.9em;
+    }
+  
+    form button {
+      font-size: 1em;
+    }
+  }
+
+  .day-detail{
+    margin-top: 5px;
+    padding: 5px;
+    width: 100%;
+  }
+
+  .day-head{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 4px;
+  }
+  

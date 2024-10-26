@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explo</title>
+    <link rel="stylesheet" href="CSS/customer_data.css">
+</head>
+<body>
+    <h1>Booking List</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+                <th>Email</th>
+                <th>Number</th>
+                <th>People</th>
+                <th>Children</th>
+                <th>Package Name</th>
+                <th>Package Price</th>
+                <th>Vehical</th>
+                <th>Flight</th>
+        </tr>
+        <% users.forEach(user => { %>
+        <tr>
+            <td data-label="Name"><%= user.name %></td>
+            <td data-label="Email"><%= user.email %></td>
+            <td data-label="Number"><%= user.number %></td>
+            <td data-label="People"><%= user.people %></td>
+            <td data-label="Children"><%= user.childrens %></td>
+            <td data-label="Package Name"><%= user.packageName %></td>
+            <td data-label="Package Price"><%= user.packagePrice %></td>
+            <td data-label="Transport"><%= user.transportType %></td>
+            <td data-label="flight"><%= user.flight%></td>
+        </tr>
+        <% }) %>
+    </table>
+        
+    
+</body>
+</html>

@@ -1,0 +1,715 @@
+body {
+    /* padding: 12px; */
+    padding-top: 12px;
+    font-family: "Poppins", sans-serif;
+    transition: background-color 0.5s ease;
+    text-decoration: none;
+}
+
+
+/* .main-element {
+    height: 150vh;
+    width: 100%;
+    position: relative;
+} */
+ 
+ .cursor{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background-color: blue;
+    transform: translate(-50%,-50%);
+    border-radius: 50px;
+    z-index: 9;
+ }
+nav {
+    padding-top: -2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 12px;
+    width: 100%;
+    /* background-color: aqua; */
+    margin-bottom: 100px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    padding: 0px 5px 0px 5px;
+    border-bottom: 1.5px solid black;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.img {
+    display: flex;
+    height: 200px;
+    width: 100%;
+    margin-top: 20%;
+}
+
+.i1 {
+    position: absolute;
+    width: 250px;
+    height: 500px;
+    top: 35%;
+    left: 45%;
+    background-image: url(../pic/Confer_pics/Dolomites\ Italy\ -\ Best\ Places\ To\ Visit\ in\ the\ Dolomites\ +\ 1-Week\ Itinerary.jpg);
+    
+    background-size: cover;
+    margin-top: -20px;
+}
+
+.i2 {
+    position: absolute;
+    width: 250px;
+    height: 500px;
+    top: 30%;
+    left: 10%;
+    background-image: url(../pic/Confer_pics/25\ Tips\ for\ Traveling\ to\ Paris\ for\ the\ First\ Time\ -\ Rock\ a\ Little\ Travel.jpg);
+    background-size: cover;
+    margin-top: -20px;
+
+}
+
+.i3 {
+    position: absolute;
+    width: 250px;
+    height: 500px;
+    top: 20%;
+    left: 20%;
+    background-image: url(../pic/Confer_pics/a96fd9a0-e4e5-4755-beab-6cedc92497ee.jpg);
+    background-size: cover;
+    margin-top: -20px;
+}
+
+.i4 {
+    position: absolute;
+    width: 250px;
+    height: 500px;
+    top: 30%;
+    left: 30%;
+    background-image: url(../pic/Confer_pics/Official\ website\ of\ Bern\ Welcome\ -\ Bern\ Welcome.jpg);
+    background-size: cover;
+    margin-top: -20px;
+}
+
+
+
+.i6 {
+    position: absolute;
+    width: 250px;
+    height: 500px;
+    top: 30%;
+    left: 75%;
+    background-image: url(../pic/Confer_pics/TheNorthernBoy\s\ Travel\ Blog\ of\ Travel\ Tips\ -\ UK\ Travel\ Blogger.jpg);
+    background-size: cover;
+    margin-top: -20px;
+}
+
+.i7 {
+    position: absolute;
+    width: 250px;
+    height: 500px;
+    top: 20%;
+    left: 60%;
+    background-image: url(../pic/Confer_pics/Tower\ Bridge\ Tour\ in\ London\ -\ Unique\ Tour\ of\ the\ Secrets\ of\ Tower\ Bridge.jpg);
+    background-size: cover;
+    margin-top: -20px;
+}
+
+.i8 {
+    position: absolute;
+    width: 250px;
+    height: 500px;
+    top: 30%;
+    left: 70%;
+    background-image: url(../pic/Confer_pics/City\ of\ London\ Walking\ Tour\ -\ FREE\ Self-Guided\ City\ of\ London\ Walk.jpg);
+    background-size: cover;
+    margin-top: -20px;
+}
+
+.aa {
+    width: 250px;
+    height: 500px;
+    top: 80%;
+    left: 50%;
+    font-size: 250px;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+}
+
+.base {
+    margin-top: 150px;
+    /* background-color: black; */
+    height: 1220px;
+    width: 100%;
+    position: relative;
+}
+
+.base-text {
+    position: absolute;
+    top: 100px;
+    left: 10%;
+    font-size: 100px;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    height: 200px;
+    width: 500px;
+}
+
+.base-text-1 {
+    margin-top: 20px;
+    position: absolute;
+    top: 650px;
+    left: 16%;
+}
+
+.base-img1 {
+    background-image: url(../pic/Second_phase/dd76b335-8823-4bb6-bf38-0bf92fa8bb2c.jpg);
+    position: absolute;
+    top: 100px;
+    right: 20%;
+    background-size: cover;
+    height: 500px;
+    width: 300px;
+}
+
+.base-img2 {
+    background-image: url(../pic/Second_phase/Sketching\ Techniques\ for\ Artists.jpg);
+    position: absolute;
+    top: 300px;
+    right: 5%;
+    background-size: cover;
+    height: 500px;
+    width: 300px;
+}
+
+.base-img3 {
+    background-image: url(../pic/Second_phase/dd76b335-8823-4bb6-bf38-0bf92fa8bb2c.jpg);
+    position: absolute;
+    top: 700px;
+    left: 45%;
+    background-size: cover;
+    height: 500px;
+    width: 450px;
+    z-index: 10;
+}
+
+.base-text-2 {
+    position: absolute;
+    top: 989px;
+    left: 10%;
+    height: 500px;
+    width: 500px;
+}
+
+.line-hori {
+    /* background-color: rgb(108, 0, 248); */
+    position: relative;
+    font-size: xx-large;
+    height: 80px;
+}
+
+.line-div-001{
+    margin: 40px;
+}
+
+.line-div-1 {
+    position: absolute;
+    top: 0;
+    right: 10%;
+}
+
+.line-div-2 {
+    position: absolute;
+    top: 0;
+    right: 25%;
+}
+
+.line-div-3 {
+    position: absolute;
+    top: 0;
+    right: 40%;
+}
+
+.line-div-4 {
+    position: absolute;
+    top: 0;
+    right: 55%;
+}
+
+.line-div-5 {
+    position: absolute;
+    top: 0;
+    right: 70%;
+}
+
+.line-div-6 {
+    position: absolute;
+    top: 0;
+    right: 85%;
+}
+
+.line-div-7 {
+    position: absolute;
+    top: 0;
+    right: 100%;
+}
+
+.line-div-8 {
+    position: absolute;
+    top: 0;
+    right: 115%;
+}
+
+.line-div-9 {
+    position: absolute;
+    top: 0;
+    right: -5%;
+}
+
+.line-div-10 {
+    position: absolute;
+    top: 0;
+    right: -20%;
+}
+
+.line-div-11 {
+    position: absolute;
+    top: 0;
+    right: -45%;
+}
+
+.line-div-12 {
+    position: absolute;
+    top: 0;
+    right: -75%;
+}
+
+.line-div-13 {
+    position: absolute;
+    top: 0;
+    right: -100%;
+}
+
+.video-base {
+    /* background-color: yellow; */
+    height: 650px;
+    width: 100%;
+    /* display: flex;
+    justify-content: space-between; */
+    position: relative;
+
+
+}
+
+.video-base-1 {
+
+    position: absolute;
+    height: 500px;
+    width: 300px;
+    top: 50px;
+    left: 5%;
+    background-color: black;
+    margin: 30px;
+    border-radius: 8px;
+}
+
+.video-base-2 {
+    position: absolute;
+    top: 50px;
+    left: 36%;
+    height: 500px;
+    width: 300px;
+    background-color: black;
+    margin: 30px;
+    border-radius: 8px;
+}
+
+.video-base-3 {
+    position: absolute;
+    top: 50px;
+    right: 5%;
+    height: 500px;
+    width: 300px;
+    background-color: black;
+    margin: 30px;
+    border-radius: 8px;
+}
+
+.video-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 500px;
+    width: 300px;
+    border-radius: 8px;
+}
+
+.image-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 500px;
+    width: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.basee-text {
+   z-index: 100;
+   opacity: 0;
+   position: absolute;
+   top: 30px;
+    transition: opacity 0.5s ease;
+    padding: 5px;
+    color: white;
+}
+
+.basee{
+    border: 1px solid black;
+    color: black;
+    font-size: larger;
+}
+
+.basee:hover .image-video {
+    filter: blur(1px);
+    opacity: 1;
+    display: block;
+
+}
+.basee:hover .basee-text {
+    opacity: 100;
+    z-index: 200;
+}
+
+
+.base-division{
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    /* background-color: white; */
+}
+
+
+
+.left_base{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(../pic/racing\ back.jpg);
+    height: 100%;
+    width: 65%;
+    /* background-color: aquamarine; */
+    background-size: cover;
+}
+
+.right-base{
+    position: absolute;
+    top: 0;
+    left: 65%;
+   
+    height: 90%;
+    width: 100%;
+ /* background-color: white; */
+ padding: 20px;
+}
+.right-base-head{
+    font-size: 80px;
+    position: absolute;
+    top: 0;
+    left: 50px;
+    font-family: "Playfair Display", serif;
+}
+
+.right-base-para{
+    position: absolute;
+    top: 90px;
+    left: 40px;
+    font-size: small;
+    /* color: black; */
+    width: 300px;
+    height: 300px;
+    
+}
+
+.right-base-1{
+    position: absolute;
+    top: 300px;
+    padding-left: 100px;
+    border-bottom: 2px solid white;
+}
+.right-base-2{
+    position: absolute;
+    top: 400px;
+    padding-left: 100px;
+    border-bottom: 2px solid white;
+}
+.right-base-3{
+    position: absolute;
+    top:500px;
+    padding-left: 100px;
+    border-bottom: 2px solid white;
+}
+
+
+
+
+.right-base-font{
+    /* position: absolute; */
+    /* top: 0;
+    left: 50%; */
+
+    font-size: 30px;
+    /* color: black; */
+    width: 100%;
+    font-family: "Merriweather", serif;   
+}
+
+.hidden{
+opacity: 0;
+filter: blur(5px);
+transform: translateX(-10%);
+transition: all 1s;
+}
+
+.show{
+opacity: 1;
+filter: blur(0);
+transform: translateX(0);
+}
+
+
+
+.float-image{
+   position: relative;
+   padding-top: 130px;
+    height: 2000px;
+    width: 100%;
+    /* background-color: rgb(145, 141, 136); */
+   
+}
+.floating-text{
+    
+    margin-left: 450px;
+    font-size: 100px;
+
+    
+    /* color: black; */
+
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+  
+
+}
+.float-img-1{
+    position: absolute;
+    background-image: url(../pic/Second_phase/dd76b335-8823-4bb6-bf38-0bf92fa8bb2c.jpg);
+    top: 250px;
+    left: 90px;
+    height: 500px;
+    width: 300px;
+    
+}
+
+
+.float-text-1{
+    position: absolute;
+    top: 400px;
+    left: 400px;
+
+    backdrop-filter:blur(10px);
+    border-radius: 10px;
+
+    height: fit-content;
+    width: 400px;
+
+    padding: 5px;
+
+}
+
+
+.float-img-2{
+    position: absolute;
+    background-image: url(https://i.pinimg.com/564x/9b/ce/50/9bce50348e275736f80f21e5b06a4a90.jpg);
+    top: 600px;
+    right: 70px;
+    height: 500px;
+    width: 300px;
+    
+}
+.float-text-2{
+    position: absolute;
+    top: 700px;
+    right: 370px;
+
+
+    backdrop-filter:blur(10px);
+    border-radius: 10px;
+
+    height: fit-content;
+    width: 400px;
+
+    padding: 5px;
+
+}
+
+.float-img-3{
+    position: absolute;
+    background-image: url(https://i.pinimg.com/564x/3b/7e/91/3b7e9126edce49a174e9b4bebe93f94f.jpg);
+    top: 1000px;
+    left: 90px;
+    height: 500px;
+    width: 300px;
+    
+}
+.float-text-3{
+    position: absolute;
+    top: 1200px;
+    left: 400px;
+
+
+    backdrop-filter:blur(10px);
+    border-radius: 10px;
+
+    height: fit-content;
+    width: 400px;
+
+    padding: 5px;
+
+}
+
+.float-img-4{
+    position: absolute;
+    background-image: url(https://i.pinimg.com/564x/9b/5e/0e/9b5e0eaf68f5398a8eed3886303159d7.jpg);
+    top: 1600px;
+    right: 70px;
+    height: 500px;
+    width: 300px;
+    
+}
+.float-text-4{
+    position: absolute;
+    top: 1800px;
+    right: 370px;
+
+
+    background:transparent ;
+    backdrop-filter:blur(10px);
+    border-radius: 10px;
+
+    height: fit-content;
+    width: 400px;
+
+    padding: 5px;
+
+}
+
+.search-section{
+    background-color: white;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 100%;
+}
+
+.form-set{
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    position: relative;
+}
+
+.search-enter{
+    width: 100%;
+    height: 40px;
+    border-radius:50px ;
+    border: black 2px solid;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    padding: 10px;
+   padding-left:30px ;
+}
+
+.search-search{
+    position: absolute;
+    right: 20px;
+    width: 100px;
+    height: 40px;
+    border-radius:50px ;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    border: black 2px solid;
+    background-color: whit;
+}
+
+
+
+.search-wala-section{
+    font-size: 100px;
+    border-right: 10px solid;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3.5s steps(12)  infinite alternate,
+                cursor .4s step-end infinite alternate;
+}
+
+@keyframes r {
+    50%{border-color: transparent}
+}
+@keyframes tycursoping {
+    30% { width: 0 }
+    60% { width: 100% }
+}
+
+.next{
+    height: 2000px;
+    width: 100%;
+}
+
+.site-footer {
+    background: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  
+}
+
+
+.site-footer-bottom {
+   
+   text-align: center;
+    
+}
+.site-footer-bottom hr{
+    border: 2px black solid;
+}
+
+.site-footer-bottom-social {
+    margin-top: 20px;
+    list-style: none;
+    font-size: 0;
+   
+    
+}
+
+
+.site-footer-bottom-social li {
+  
+    display: inline-block;
+    font-size: 20px;
+    line-height: 1
+    
+}
+.site-footer-bottom-social li a{
+    margin: 20px;
+    text-decoration: none;
+    
+}

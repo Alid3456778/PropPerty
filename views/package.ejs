@@ -21,7 +21,7 @@
         <div id="packageDetails" class="main"></div>
     </div>
     <div class="inform">
-        <% if (session.user) { %>
+        <!-- <% if (session.user) { %> -->
         <form action="/booking" method="post">  
             <input type="text" name="username" placeholder="Enter Your Name">
             <input type="email" name="email" placeholder="Enter Your Email">
@@ -67,9 +67,9 @@
 
             <button type="submit">Book !</button>
         </form>
-        <% } else { %>
+        <!-- <% } else { %>
             <p>You must <a href="/login">login</a> or <a href="/signup">sign up</a> to book the tour.</p>
-        <% } %>
+        <% } %> -->
     </div>
 
     <script>

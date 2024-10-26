@@ -60,7 +60,7 @@ app.get('/admin',(req,res)=>{
 
 app.get('/package',(req,res)=>{
     // res.render('package');
-    res.render('package', { session: req.session });
+    res.render('package');
 })
 
 app.get('/fake',(req,res)=>{

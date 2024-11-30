@@ -30,6 +30,10 @@ app.get('/', (req, res) => {
             res.render('index'); 
 });
 
+app.get('/test', (req, res) => {
+    res.render('test'); 
+});
+
 app.get('/pack',(req,res)=>{
     let jsonData;
     fs.readFile('./public/dummy.json', 'utf8', (err, data) => {

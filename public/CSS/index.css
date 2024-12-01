@@ -687,7 +687,7 @@ transform: translateX(0);
                 cursor .4s step-end infinite alternate;
 }
 
-@keyframes r {
+@keyframes  {
     50%{border-color: transparent}
 }
 @keyframes tycursoping {

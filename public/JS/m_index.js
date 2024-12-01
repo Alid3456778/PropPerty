@@ -1,9 +1,18 @@
 const scroller = new LocomotiveScroll({
   el: document.querySelector('.main-element'),
   smooth: true,
+  mobile:{
+    breakpoint:0,
+    smooth: true,
+    intertia:0.8,
+    getDirection:true,
+  },
   tablet:{
     breakpoint:0,
-  }
+    smooth: true,
+    intertia:0.8,
+    getDirection:true,
+  },
 })
 
 scroller.on('scroll', (scrollArgs) => {
